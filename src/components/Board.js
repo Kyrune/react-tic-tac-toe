@@ -3,6 +3,7 @@ import Square from './Square';
 
 const Board = ({ squares, onClick }) => 
     (
+        // Change to loop
         <div>
             <Square value="1" onClick={() => onClick("dummy value")} />
             <Square value="2" onClick={() => onClick("dummy value")} />
