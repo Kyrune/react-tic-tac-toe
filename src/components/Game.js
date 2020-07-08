@@ -21,8 +21,9 @@ const Game = () => {
         // If user clicks on occupied square or if game is won, return
         if (winner || boardCopy[i]) return;
         // Put an X or O in the clicked square
-        boardCopy[i] = xIsNext ? 'X' : 'O';
-        setHistory(boardCopy);
+        squares[i] = xIsNext ? 'X' : 'O';
+        setHistory([...timeInHistory, squares]);
+        setStepNumber(timeInHistory.length);
         setXisNext(!xIsNext);
     };
 
