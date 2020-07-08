@@ -17,6 +17,7 @@ const Game = () => {
     const handleClick = i => {
         const timeInHistory = history.slice(0, stepNumber + 1);
         const current = timeInHistory[stepNumber];
+        const squares = [...current];
         // If user clicks on occupied square or if game is won, return
         if (winner || boardCopy[i]) return;
         // Put an X or O in the clicked square
