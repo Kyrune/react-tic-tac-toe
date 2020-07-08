@@ -19,7 +19,7 @@ const Game = () => {
         const current = timeInHistory[stepNumber];
         const squares = [...current];
         // If user clicks on occupied square or if game is won, return
-        if (winner || boardCopy[i]) return;
+        if (winner || squares[i]) return;
         // Put an X or O in the clicked square
         squares[i] = xIsNext ? 'X' : 'O';
         setHistory([...timeInHistory, squares]);
@@ -28,8 +28,9 @@ const Game = () => {
     };
 
 
-    const jumpTo = () => {
-
+    const jumpTo = step => {
+        setStepNumber(step);
+        setXisNext(step % 2 === 0);
     };
 
     const renderMoves = () => (
@@ -47,7 +48,7 @@ const Game = () => {
     
     return (
         <>
-            <Board squares={board} onClick={handleClick} />
+            <Board squares={history[stepNumber]} onClick={handleClick} />
             <div style={styles}>
                 <p>{winner ? 'Winner: ' + winner : 'Next Player: ' + (xIsNext ? 'X' : 'O')}</p>
                 {renderMoves()}
